@@ -10,7 +10,7 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "scripts/background.js"
+      "new_scripts/attempt1_background.js"
     ]
   },
   "permissions": [
@@ -26,7 +26,7 @@
         "<all_urls>"
       ],
       "js": [
-        "scripts/contentscript.js",
+        "new_scripts/attempt1_contentscript.js",
         "jquery-3.5.1.min.js", 
         "canvasjs.min.js", 
         "chart.js"
