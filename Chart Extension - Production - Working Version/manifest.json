@@ -1,0 +1,24 @@
+{
+    "version": "1.0",
+    "manifest_version": 2,
+ 
+    "name": "Chart Testing", 
+    "description": "Testing Chart Application",
+    "browser_action": {
+        "default_icon": "chart.png",
+        "default_popup": "chart.html"
+    },
+
+    "content_scripts": [
+        {
+          "matches": [
+            "<all_urls>"
+          ],
+          "js": ["jquery-3.5.1.min.js", "canvasjs.min.js", "chart.js"]
+        }
+    ], 
+
+    "permissions": [
+        "activeTab"
+     ]
+}
