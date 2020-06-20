@@ -29,4 +29,4 @@ function onRequest(request, sender, sendResponse) {
   }
 }
 
-chrome.runtime.onMessage.addListener(onRequest);
+chrome.extension.onMessage.addListener(onRequest);
