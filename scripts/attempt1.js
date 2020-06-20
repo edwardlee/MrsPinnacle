@@ -30,7 +30,7 @@ function newDay() {
 }
 
 // check for a new day every minute = 60000 milliseconds
-setInterval(newDay(), 60000);
+window.setInterval(() => newDay(), 60000);
 
 // helper function to add website to time_spent
 function addWebsite(website) {
@@ -45,13 +45,13 @@ function addWebsite(website) {
         var website_pair = [website, 0.0];
         time_spent.push(website_pair);
     }
-} 
+}
 
-// function to add tab 
+// function to add tab
 function addTab(str) {
     if (str) { // string cannot be null or undefined
         // string cannot be empty, blank, or contain only white space
-        if (!(str === "") && !(str.trim().length === 0) && !str.trim()) { 
+        if (!(str === "") && !(str.trim().length === 0) && !str.trim()) {
             var website = str.split("/")[2]; // website after https
             if (website.length > 0) {
                 addWebsite(website);
@@ -113,7 +113,7 @@ function updateVars() {
         //-an-empty-undefined-null-string-in-javascript
         if (url) { // url cannot be null or undefined
             // url cannot be empty, blank, or contain only white space
-            if (!(url === "") && !(url.trim().length === 0) && !str.trim()) { 
+            if (!(url === "") && !(url.trim().length === 0) && !str.trim()) {
                 var website = str.split("/")[2]; // website after https
                 if (website.length > 0) {
                     increaseTime(website);
@@ -124,4 +124,4 @@ function updateVars() {
 }
 
 // check for a new day every half second = 500 milliseconds
-setInterval(updateVars(), 500);
+window.setInterval(() => updateVars(), 500);

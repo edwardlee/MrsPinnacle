@@ -10,21 +10,20 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "scripts/attempt1.js"
+      "scripts/background.js"
     ]
   },
   "permissions": [
     "tabs",
-    "storage",
-    "http://*/*",
-    "https://*/*"
+    "storage"
   ],
   "options_page": "options.html",
   "content_scripts": [
     {
       "matches": [
         "http://*/*",
-        "https://*/*"
+        "https://*/*",
+        "<all_urls>"
       ],
       "js": [
         "scripts/contentscript.js"
