@@ -22,6 +22,8 @@ const renderBookmark = function renderBookmark(data) {
   } else {
     renderMessage("Sorry, could not extract this page's title and URL");
   }
+  const time = document.getElementById("time");
+  time.value = "hello";
 };
 
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
