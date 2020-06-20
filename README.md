@@ -10,7 +10,7 @@
 
 <div align="center">
   <a href="https://www.emailthis.me/open-source/extension-boilerplate">
-    <img src="./resources/chrome-promo/large.png" alt="Extension Boilerplate">
+    <img src="./icons/icon-128.png" alt="Extension Boilerplate">
   </a>
 </div>
 

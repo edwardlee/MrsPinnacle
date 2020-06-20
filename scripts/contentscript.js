@@ -1,11 +1,8 @@
 const extractTags = function extractTags() {
-  const url = document.location.href;
-  if (!url || !url.match(/^http/)) return;
+  if(!document.location.href) return false;
 
   const data = {
-    title: "",
-    description: "",
-    url: document.location.href
+    title: "", description: "", url: document.location.href
   };
 
   const ogTitle = document.querySelector("meta[property='og:title']");
