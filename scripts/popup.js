@@ -8,7 +8,12 @@ chrome.storage.sync.get('color', function (resp) {
 
 const template = function template(data) {
   const json = JSON.stringify(data);
-  return "\n  <div class=\"site-description\">\n    <h3 class=\"title\">" + data.title + "</h3>\n    <p class=\"description\">" + data.description + "</p>\n    <a href=\"" + data.url + "\" target=\"_blank\" class=\"url\">" + data.url + "</a>\n  </div>\n  <div class=\"action-container\">\n    <button data-bookmark='" + json + "' id=\"save-btn\" class=\"btn btn-primary\">Save</button>\n  </div>\n  ";
+  return "\n  <div class=\"site-description\">\n    <h3 class=\"title\">" +
+      data.title + "</h3>\n    <p class=\"description\">" +
+      data.description + "</p>\n    <a href=\"" + data.url +
+      "\" target=\"_blank\" class=\"url\">" + data.url +
+      "</a>\n  </div>\n  <div class=\"action-container\">\n    <button data-bookmark='" +
+      json + "' id=\"save-btn\" class=\"btn btn-primary\">Save</button>\n  </div>\n  ";
 };
 const renderMessage = function renderMessage(message) {
   const displayContainer = document.getElementById("display-container");
@@ -20,10 +25,11 @@ const renderBookmark = function renderBookmark(data) {
   if (data) {
     displayContainer.innerHTML = template(data);
   } else {
-    renderMessage("Sorry, could not extract this page's title and URL");
+    renderMessage("Probably need to reload this page");
   }
   const time = document.getElementById("time");
-  time.value = "hello";
+  let sec = 0;
+  window.setInterval(() => {sec += 1; time.innerHTML = Math.floor(sec / 60).toString() + ((sec/60 - Math.floor(sec / 60))*60).toString()}, 1000);
 };
 
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
