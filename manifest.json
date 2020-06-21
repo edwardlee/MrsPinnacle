@@ -10,7 +10,7 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "new_scripts/attempt1_background.js"
+      "scripts/attempt1_background.js"
     ]
   },
   "permissions": [
@@ -26,10 +26,10 @@
         "<all_urls>"
       ],
       "js": [
-        "new_scripts/attempt1_contentscript.js",
-        "jquery-3.5.1.min.js", 
-        "canvasjs.min.js", 
-        "chart.js"
+        "scripts/attempt1_content.js",
+        "new_scripts/jquery-3.5.1.min.js",
+        "new_scripts/canvasjs.min.js",
+        "new_scripts/chart.js"
       ],
       "run_at": "document_end",
       "all_frames": false

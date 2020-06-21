@@ -4,7 +4,7 @@
 // initialize variables
 function initializeVars() {
     // ordered pairs of website and time
-    chrome.storage.sync.set({"time_spent": []}); 
+    chrome.storage.sync.set({"time_spent": []});
 
     const d = Date();
     const d_string = d.toString();
@@ -24,9 +24,7 @@ function newDay() {
     const d_array = d_string.split(" ");
     const day = Number(d_array[2]);
 
-    if (day !== chrome.storage.sync.get("saved_day")) {
-        initializeVars();
-    }
+    chrome.storage.sync.get("saved_day", (response) => {if (day !== response.saved_day) initializeVars()})
 }
 
 // check for a new day every minute = 60000 milliseconds

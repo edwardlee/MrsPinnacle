@@ -28,26 +28,24 @@ const renderBookmark = function renderBookmark(data) {
     renderMessage("Probably need to reload this page");
   }
   const time = document.getElementById("time");
-  let sec = 0;
-  window.setInterval(() => {sec += 1; time.innerHTML = Math.floor(sec / 60).toString() + ((sec/60 - Math.floor(sec / 60))*60).toString()}, 1000);
 };
 
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   const activeTab = tabs[0];
-  chrome.tabs.sendMessage(activeTab.id, { action: 'process-page' }, renderBookmark);
+  // chrome.tabs.sendMessage(activeTab.id, { action: 'process-page' }, renderBookmark);
 });
 
 popup.addEventListener("click", function (e) {
   if (e.target && e.target.matches("#save-btn")) {
     e.preventDefault();
     const data = e.target.getAttribute("data-bookmark");
-    chrome.runtime.sendMessage({ action: "perform-save", data: data }, function (response) {
-      if (response && response.action === "saved") {
-        renderMessage("Your bookmark was saved successfully!");
-      } else {
-        renderMessage("Sorry, there was an error while saving your bookmark.");
-      }
-    });
+    // chrome.runtime.sendMessage({ action: "perform-save", data: data }, function (response) {
+    //   if (response && response.action === "saved") {
+    //     renderMessage("Your bookmark was saved successfully!");
+    //   } else {
+    //     renderMessage("Sorry, there was an error while saving your bookmark.");
+    //   }
+    // });
   }
 });
 
