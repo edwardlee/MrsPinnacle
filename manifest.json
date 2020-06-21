@@ -10,10 +10,11 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "scripts/attempt1_background.js"
+      "scripts/attempt1_background_simple.js"
     ]
   },
   "permissions": [
+    "activeTabs",
     "tabs",
     "storage"
   ],
@@ -26,7 +27,7 @@
         "<all_urls>"
       ],
       "js": [
-        "scripts/attempt1_content.js",
+        "scripts/attempt1_content_simple.js",
         "scripts/jquery-3.5.1.min.js",
         "scripts/canvasjs.min.js",
         "scripts/chart.js"

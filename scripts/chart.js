@@ -39,9 +39,9 @@ window.onload = function () {
                 alert(response.saved_day);
 			})*/
 			
-			/**chrome.storage.sync.get("active_tab", (response) => {
+			chrome.storage.sync.get("active_tab", (response) => {
                 alert(response.active_tab);
-            })*/
+            })
 
 			// Retrieve stored time spent and place new object into testPoints
 			/**chrome.storage.sync.get(['time_spent'], function(result){
@@ -51,7 +51,7 @@ window.onload = function () {
 				console.log(result);
 				console.log("changed");
 			})*/
-			chrome.storage.sync.get("time_spent", (response) => {
+			chrome.storage.sync.get({"time_spent":[]}, (response) => {
 				/**var str1 = "";
 				var temp_str = "";
 				for (let i = 0; i < response.time_spent.length; i++) {
@@ -59,8 +59,8 @@ window.onload = function () {
 					str1 += temp_str;
 				}
 				alert(str1);*/
-				//var str1 = response.time_spent.length.toString();
-				//alert(str1);
+				var str1 = response.time_spent.length.toString();
+				alert(str1);
 				for (let i = 0; i < response.time_spent.length; i++) {
 					testPoints.push({y:response.time_spent[i][1], label:response.time_spent[i][0]});
 				}
