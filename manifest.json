@@ -23,8 +23,7 @@
     {
       "matches": [
         "http://*/*",
-        "https://*/*",
-        "<all_urls>"
+        "https://*/*"
       ],
       "js": [
         "scripts/attempt1_content_simple.js",

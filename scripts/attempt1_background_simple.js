@@ -38,8 +38,5 @@ window.setInterval(() => newDay(), 60000);
 // the-current-tab-from-a-google-chrome-extension
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     // Sent a message to content script
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        var currTab = tabs[0];
-        chrome.tabs.sendMessage(currTab.id, {"message": "activated_tab"});
-    });
+    chrome.tabs.sendMessage(activeInfo.tabId, {"message": "activated_tab"});
 });
