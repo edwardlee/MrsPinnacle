@@ -1,8 +1,7 @@
 // different actions based on the message received from background
-chrome.runtime.onMessage.addListener(
+chrome.tabs.onMessage.addListener(
     function(request, sender, sendResponse) {
         var url = location.href;
-
         if (request.message === "created_tab" ||
         request.message === "updated_tab") {
             addTab(url);
@@ -42,8 +41,8 @@ function updateVars() {
     })
 }
 
-// check to update variables every half second = 500 milliseconds
-window.setInterval(() => updateVars(), 500);
+// check to update variables every 5 seconds = 5000 milliseconds
+setInterval(() => updateVars(), 5000);
 
 // helper functions
 
@@ -61,7 +60,7 @@ function addWebsite(website) {
         if (seen === false) {
             const website_pair = [website, 0.0];
             temp_time_spent.push(website_pair);
-            chrome.storage.sync.set("time_spent", temp_time_spent);
+            chrome.storage.sync.set({"time_spent": temp_time_spent});
         }
     })
 }
@@ -99,6 +98,6 @@ function increaseTime(website) {
                 temp_time_spent[i] = [website, value];
             }
         }
-        chrome.storage.sync.set({time_spent, temp_time_spent});
+        chrome.storage.sync.set({"time_spent": temp_time_spent});
     })
 }

@@ -2,7 +2,6 @@
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         var url = location.href;
-
         if (request.message === "activated_tab") {
             chrome.storage.sync.set({"active_tab": url});
             addTab(url);
@@ -24,8 +23,8 @@ function updateVars() {
     })
 }
 
-// check to update variables every half second = 500 milliseconds
-window.setInterval(() => updateVars(), 500);
+// check to update variables every 0.5 seconds = 500 milliseconds
+setInterval(updateVars, 500);
 
 // helper functions
 

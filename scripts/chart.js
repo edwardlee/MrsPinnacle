@@ -1,12 +1,12 @@
 window.onload = function () {
-	// var time_spent = 
+	// var time_spent =
 	// [["reddit.com",52],["youtube.com",103],["facebook.com",134]];
 	var testPoints = [];
 
 	// from: https://canvasjs.com/html5-javascript-bar-chart/
 	var chart = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
-		
+
 		title:{
 			text:"Time Most Spent"
 		},
@@ -38,7 +38,7 @@ window.onload = function () {
 			/**chrome.storage.sync.get("saved_day", (response) => {
                 alert(response.saved_day);
 			})*/
-			
+
 			chrome.storage.sync.get("active_tab", (response) => {
                 alert(response.active_tab);
             })
@@ -48,8 +48,6 @@ window.onload = function () {
 				for (var i = 0; i<result.length; i++){
 					testPoints.push({y:result[i][1], label:result[i][0]});
 				}
-				console.log(result);
-				console.log("changed");
 			})*/
 			chrome.storage.sync.get({"time_spent":[]}, (response) => {
 				/**var str1 = "";
@@ -59,7 +57,7 @@ window.onload = function () {
 					str1 += temp_str;
 				}
 				alert(str1);*/
-				var str1 = response.time_spent.length.toString();
+				var str1 = response.time_spent.length;
 				alert(str1);
 				for (let i = 0; i < response.time_spent.length; i++) {
 					testPoints.push({y:response.time_spent[i][1], label:response.time_spent[i][0]});
@@ -71,7 +69,7 @@ window.onload = function () {
 			// Create a new chart
 			var chart = new CanvasJS.Chart("chartContainer", {
 				animationEnabled: true,
-				
+
 				title:{
 					text:"Time Most Spent"
 				},
