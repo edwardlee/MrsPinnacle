@@ -5,7 +5,12 @@ chrome.runtime.onMessage.addListener(
 
         if (request.message === "activated_tab") {
             chrome.storage.sync.set({"active_tab": url});
-            addTab(url);
+            var temp_time_spent;
+            chrome.storage.sync.get({"time_spent":[]}, (response) => {
+                temp_time_spent = response.time_spent;
+                temp_time_spent.push([website, 0.0]);
+            })
+            chrome.storage.sync.set({"time_spent": temp_time_spent});
         }
     }
 );
@@ -26,33 +31,6 @@ function updateVars() {
 
 // check to update variables every half second = 500 milliseconds
 window.setInterval(() => updateVars(), 500);
-
-// helper functions
-
-// helper function to add website to time_spent
-function addWebsite(website) {
-    let seen = false;
-    chrome.storage.sync.get({"time_spent":[]}, (response) => {
-        var temp_time_spent = response.time_spent;
-        for (let i = 0; i < temp_time_spent.length; i++) {
-            const curr = temp_time_spent[i];
-            if (curr[0] === website) {
-                seen = true;
-            }
-        }
-        if (seen === false) {
-            const website_pair = [website, 0.0];
-            temp_time_spent.push(website_pair);
-            chrome.storage.sync.set({"time_spent": temp_time_spent});
-        }
-    })
-}
-
-// function to add tab
-function addTab(str1) {
-    var str1;
-    addWebsite(str1);
-}
 
 // helper function to updateVars
 function increaseTime(website) {
