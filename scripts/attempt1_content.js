@@ -24,7 +24,8 @@ function updateVars() {
             // -an-empty-undefined-null-string-in-javascript
             if (url) { // url cannot be null or undefined
                 // url cannot be empty, blank, or contain only white space
-                if (!(url === "") && !(url.trim().length === 0) && !url.trim()) {
+                //if (!(url === "") && !(url.trim().length === 0) && !url.trim()) {
+                if (!(url === "")) {
                     var website;
                     if ((url.slice(0, 7) === "http://") ||
                     (url.slice(0, 8) === "https://")) {
@@ -71,7 +72,8 @@ function addTab(str1) {
     // an-empty-undefined-null-string-in-javascript
     if (str1) { // string cannot be null or undefined
         // string cannot be empty, blank, or contain only white space
-        if (!(str1 === "") && !(str1.trim().length === 0) && !str1.trim()) {
+        //if (!(url === "") && !(url.trim().length === 0) && !url.trim()) {
+        if (!(url === "")) {
             var website;
             if ((str1.slice(0, 7) === "http://") ||
                 (str1.slice(0, 8) === "https://")) {
