@@ -41,8 +41,8 @@ function updateVars() {
     })
 }
 
-// check to update variables every 5 seconds = 5000 milliseconds
-setInterval(() => updateVars(), 5000);
+// check to update variables every 0.5 seconds = 500 milliseconds
+setInterval(() => updateVars(), 500);
 
 // helper functions
 
